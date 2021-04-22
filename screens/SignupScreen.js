@@ -1,5 +1,5 @@
 import React from 'react'
-import { Image, KeyboardAvoidingView, ScrollView, StyleSheet } from 'react-native'
+import { KeyboardAvoidingView, ScrollView, StyleSheet } from 'react-native'
 import * as Yup from 'yup'
 import AppText from '../components/AppText'
 import {AppForm,AppFormField,SubmitButton} from '../components/forms'
