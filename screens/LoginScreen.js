@@ -1,5 +1,5 @@
 import React from 'react'
-import { Image, StyleSheet } from 'react-native'
+import { Image, KeyboardAvoidingView, ScrollView, StyleSheet, TouchableOpacity } from 'react-native'
 import * as Yup from 'yup'
 import AppText from '../components/AppText'
 import {AppForm,AppFormField,SubmitButton} from '../components/forms'
@@ -13,41 +13,46 @@ const validationSchema = Yup.object().shape({
 
 function LoginScreen() {
  return (
-  <Screen style={styles.container}>
-   <Image
-    style = {styles.logo}
-    source = {require("../assets/logo.png")}
-   />
-   <AppText style={styles.subHead}>Login to your account</AppText>
-   <AppForm
-    initialValues={{email:'', password:''}}
-    onSubmit={(values) => console.log(values)}
-    validationSchema={validationSchema}
-   >
-    <AppFormField 
-       icon="email"
-       placeholder="Email Id"
-       autoCorrect={false}
-       autoCapitalize="none"
-       name="email"
-       keyboardType = "email-address"
-       textContentType="emailAddress"
-      />
-      <AppFormField
-       autoCapitalize="none"
-       autoCorrect={false}
-       icon="lock"
-       name="password"
-       placeholder="Password"
-       secureTextEntry
-       textContentType="password"
-      />
-      <AppText style={styles.forget}>Forgot Password?</AppText>
-      <SubmitButton title="Login"/>
-      <AppText style={styles.last}>Don't have an account?<AppText style={styles.signup}> SIGN UP</AppText></AppText>
-   </AppForm>
+ <KeyboardAvoidingView behavior="height" style={{flex:1}}>
+ <ScrollView>
 
-  </Screen>
+   <Screen style={styles.container}>
+      <Image
+      style = {styles.logo}
+      source = {require("../assets/logo.png")}
+      />
+      <AppText style={styles.subHead}>Login to your account</AppText>
+      <AppForm
+      initialValues={{email:'', password:''}}
+      onSubmit={(values) => console.log(values)}
+      validationSchema={validationSchema}
+      >
+      <AppFormField 
+         icon="email"
+         placeholder="Email Id"
+         autoCorrect={false}
+         autoCapitalize="none"
+         name="email"
+         keyboardType = "email-address"
+         textContentType="emailAddress"
+         />
+         <AppFormField
+         autoCapitalize="none"
+         autoCorrect={false}
+         icon="lock"
+         name="password"
+         placeholder="Password"
+         secureTextEntry
+         textContentType="password"
+         />
+         <AppText style={styles.forget}>Forgot Password?</AppText>
+         <SubmitButton title="Login" />
+         <AppText style={styles.last}>Don't have an account?<TouchableOpacity onPress={()=> navigation.navigate('Signup')}><AppText style={styles.signup}>  SIGN UP</AppText></TouchableOpacity></AppText>
+      </AppForm>
+
+   </Screen>
+ </ScrollView>
+ </KeyboardAvoidingView>
   )
 }
 

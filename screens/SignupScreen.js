@@ -15,9 +15,9 @@ const validationSchema = Yup.object().shape({
  phone: Yup.string().required().min(10).label("Phone")
 })
 
-function LoginScreen() {
+function LoginScreen({ navigation }) {
  return (
-  <KeyboardAvoidingView behavior="padding">
+  <KeyboardAvoidingView behavior="height" style={{flex:1}}>
    <ScrollView>
     <Screen style={styles.container}>
      <AppText style={styles.subHead}>Create account</AppText>
@@ -84,7 +84,7 @@ function LoginScreen() {
 
 const styles = StyleSheet.create({
  container:{
-  padding:10
+  padding:10,
  },
  subHead:{
   fontWeight: '500',

@@ -54,7 +54,7 @@ export default function OtpScreen({email}) {
    <View style={styles.container}>
     <KeyboardAvoidingView
      keyboardVerticalOffset={50}
-     behavior={'padding'}
+     behavior="height"
      style={styles.containerAvoidingView}
     >
      <AppText style={styles.text}>{"Enter the 4 digit code sent to:"}</AppText>

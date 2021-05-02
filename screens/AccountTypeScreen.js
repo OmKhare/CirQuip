@@ -11,7 +11,7 @@ const validationSchema = Yup.object().shape({
  college: Yup.string().required().label("College")
 })
 
-function BranchYearScreen() {
+function BranchYearScreen({ navigation }) {
  return (
   <Screen style={styles.container}>
    <AppText style={styles.subHead}>Please Select Your Account Type</AppText>
