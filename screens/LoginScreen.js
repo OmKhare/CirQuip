@@ -11,7 +11,7 @@ const validationSchema = Yup.object().shape({
  password: Yup.string().required().min(5).label("Password")
 })
 
-function LoginScreen() {
+function LoginScreen({ navigation }) {
  return (
  <KeyboardAvoidingView behavior="height" style={{flex:1}}>
  <ScrollView>
